@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Libcurl on cURL Source Code Notes</title>
+    <link>http://localhost:1313/tags/libcurl/</link>
+    <description>Recent content in Libcurl on cURL Source Code Notes</description>
+    <generator>Hugo -- 0.155.3</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/libcurl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cURL Docs: First Reading Notes</title>
+      <link>http://localhost:1313/posts/2026-02-12-first-impressions/</link>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2026-02-12-first-impressions/</guid>
+      <description>&lt;h2 id=&#34;scope&#34;&gt;Scope&lt;/h2&gt;
+&lt;p&gt;Browsed around the &lt;a href=&#34;https://curl.se/docs/&#34;&gt;https://curl.se/docs/&lt;/a&gt; and gaping at the vastness of the tool&amp;rsquo;s architecture&lt;/p&gt;
+&lt;h2 id=&#34;key-observations&#34;&gt;Key Observations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Be consistent, and spend atleast 15-20min each day, in exploring the portal&lt;/li&gt;
+&lt;li&gt;Ask yourself, what can I do, to contribute? It may be too early, but having the question at the back of your mind would be useful&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Identify areas, where you want to deep-dive and list your questions here.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

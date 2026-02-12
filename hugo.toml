@@ -1,0 +1,43 @@
+baseURL = "https://blog.mrdee.in/"
+languageCode = "en-us"
+title = "cURL Source Code Notes"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  env = "production"
+  description = "Daily study notes while reading cURL source code"
+  author = "Mister Dee"
+
+  ShowReadingTime = true
+  ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowToc = true
+  TocOpen = false
+
+  defaultTheme = "auto"
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Architecture"
+    url = "/curl-architecture/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Deep Dives"
+    url = "/deep-dives/"
+    weight = 3

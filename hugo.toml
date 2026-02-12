@@ -1,6 +1,6 @@
 baseURL = "https://mrdee.in/"
 languageCode = "en-us"
-title = "cURL Source Code Notes"
+title = "Mr.Dee's Notes"
 theme = "PaperMod"
 
 enableRobotsTXT = true

@@ -1,6 +1,6 @@
 baseURL = "https://mrdee.in/"
 languageCode = "en-us"
-title = "Mr.Dee's Notes"
+title = "Dee's Digest"
 theme = "PaperMod"
 
 enableRobotsTXT = true

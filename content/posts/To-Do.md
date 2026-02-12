@@ -1,7 +1,8 @@
 ---
 title: "To Do"
 date: 2026-02-12
-tags: ["To Dos"]
+draft: True
+hidden: True
 ---
 
 ## To Do

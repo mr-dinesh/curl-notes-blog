@@ -1,8 +1,8 @@
 ---
 title: "To Do"
 date: 2026-02-12
-draft: True
-hidden: True
+draft: true
+hidden: true
 ---
 
 ## To Do

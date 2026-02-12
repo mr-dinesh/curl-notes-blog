@@ -1,4 +1,4 @@
-baseURL = "https://blog.mrdee.in/"
+baseURL = "https://mrdee.in/"
 languageCode = "en-us"
 title = "cURL Source Code Notes"
 theme = "PaperMod"

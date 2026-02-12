@@ -1,5 +1,5 @@
 ---
-title: "cURL Docs: First Reading Notes"
+title: "cURL Docs: Reading Notes"
 date: 2026-02-12
 tags: ["curl", "libcurl", "source-code"]
 ---

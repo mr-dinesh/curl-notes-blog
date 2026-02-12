@@ -1,6 +1,6 @@
 baseURL = "https://mrdee.in/"
 languageCode = "en-us"
-title = "cURL Source Code Notes"
+title = "Mr.Dee Notes"
 theme = "PaperMod"
 
 enableRobotsTXT = true
@@ -28,8 +28,8 @@ buildExpired = false
 
 [menu]
   [[menu.main]]
-    name = "Posts"
-    url = "/posts/"
+    name = "Curl Notes"
+    url = "/curl-notes/"
     weight = 1
 
   [[menu.main]]

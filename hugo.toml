@@ -14,8 +14,8 @@ buildExpired = false
 
 [params]
   env = "production"
-  description = "Daily study notes while reading cURL source code"
-  author = "Mister Dee"
+  description = "Daily Notes"
+  author = "Mr.Dee"
 
   ShowReadingTime = true
   ShowCodeCopyButtons = true
@@ -33,11 +33,11 @@ buildExpired = false
     weight = 1
 
   [[menu.main]]
-    name = "Architecture"
-    url = "/curl-architecture/"
+    name = "Reading"
+    url = "/reading/"
     weight = 2
 
   [[menu.main]]
-    name = "Deep Dives"
-    url = "/deep-dives/"
+    name = "Writing"
+    url = "/writing/"
     weight = 3

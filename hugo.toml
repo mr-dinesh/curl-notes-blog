@@ -28,7 +28,7 @@ buildExpired = false
 
 [menu]
   [[menu.main]]
-    name = "Curl Notes"
+    name = "Notes"
     url = "/curl-notes/"
     weight = 1
 

@@ -1,3 +1,18 @@
+# robots.txt for personal Hugo blog
+
 User-agent: *
-Disallow:
-Sitemap: http://localhost:1313/sitemap.xml
+Allow: /
+
+# Block system/build artifacts (if ever exposed)
+Disallow: /.git/
+Disallow: /.hg/
+Disallow: /.svn/
+Disallow: /node_modules/
+
+# Optional: block internal or preview sections if they exist
+Disallow: /draft/
+Disallow: /preview/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://mrdee.in/sitemap.xml

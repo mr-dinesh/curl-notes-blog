@@ -1,16 +1,13 @@
 ---
-title: "Vibe-Coding-Day-001"
+title: "Vibecoding-Day001- Browser Addon - PureLink "
 date: 2026-03-14
 tags: ["Writing","Vibecoding"]
 ---
 
-### Two big ideas here, actually 3 
-
-- One is meta and two are the big rocks
+### Two big ideas here
 - Idea#1: Use an LLM, to create something, anything
 - Idea#2: Do it for a 100 days
-
-Meta-idea: Write about what you've done (aside: why is this a meta-idea, will write about it later)
+- A third, meta idea, is to write about what I've done (aside: why is this a meta-idea, will write about it later)
 
 ### Today's vibe-coding idea: create a browser extension for a URL sanitizer.
 
@@ -23,16 +20,18 @@ And what was also equally amazing, was that it worked. I also got the LLM to cre
 
 ### Some Caveats
 - I'm not sure, how effective the URL sanitization actually is. 
+- Also, there are tons of similar addons, so what makes PureLink any better / different / good ?
 - Need to spend some more time validating the results, but I was happy with the initial outcomes and will eventually do a bit more study and analysis of the inner working of the code.
 
 ### Additional Reading Required
 - [CleanURLs](https://github.com/ClearURLs/Addon) has more on the subject, which I intend re-visiting, at some point in time.
-- Browser Addon Github repo [here](https://github.com/mr-dinesh/Vibecoding001-PureLink_browser_addon)
+- PureLink Browser Addon Github repo [here](https://github.com/mr-dinesh/Vibecoding001-PureLink_browser_addon)
 
 
 ### Work to be done
 - Improve the code
-- Create a Readme
+- Create a Readme, to remind myself what has been done, and what needs to be. 
+- See [URL Cleaner by Jibin](https://chromewebstore.google.com/detail/url-cleaner/dffbjiomnajbmlhjelpipfldgkijdemn)
 
 
 

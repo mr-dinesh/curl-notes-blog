@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day004-CyberPrep — Security Interview Simulator Webapp" 
-date: 2026-03-17
-tags: ["writing", "Vibecoding"]
+title : "Vibecoding-Day004- CyberPrep — Security Interview Simulator Webapp" 
+date : 2026-03-17
+tags : ["writing", "Vibecoding"]
 ---
 
 ### Prompt Used: 
@@ -11,13 +11,12 @@ Example Role: Director SOC
 
 Iteration2: Minor tweaks needed, some cards, the text is overflowing the card dimensions. Also provide a CSV upload capability to add new flashcards in addition to the existing manual mode of adding new cards.
 
-### Description 
+### Description of the tool 
 CyberPrep — Security Interview Simulator
 A self-contained, browser-based flashcard simulator built for senior cybersecurity interview preparation. No backend, no login — runs entirely from a single HTML file with persistent local storage.
 
 ### Features
 Flashcard Practice Engine
-
 - 80+ pre-loaded cards across 7 categories tailored to Director/Head-of-Security level interviews
 - 3D flip card animation — view the question, click to reveal the structured answer
 - Rate each card as Easy / Medium / Hard after reviewing

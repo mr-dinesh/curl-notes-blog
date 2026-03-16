@@ -1,4 +1,9 @@
-# Vibe-Coding-Day001
+
+---
+title:Vibe-Coding-Day001
+date:2026-03-14
+tags: ["Writing","Vibecoding"]
+---
 
 ###Two big ideas here, actually 3, 
 

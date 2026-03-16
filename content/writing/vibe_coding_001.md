@@ -1,12 +1,16 @@
 # Vibe-Coding-Day001
 
-Two big ideas here, actually 3, one is meta and two are the big rocks
+###Two big ideas here, actually 3, 
+
+- One is meta and two are the big rocks
 - Idea#1: Use an LLM, to create something, anything
 - Idea#2: Do it for a 100 days
 
 Meta-idea: Write about what you've done (aside: why is this a meta-idea, will write about it later)
 
-### Today's vibe-coding idea: create a browser extension for a URL sanitizer. It removes all tracking parameters from the link before rendering it in a new tab. 
+### Today's vibe-coding idea: create a browser extension for a URL sanitizer.
+
+It removes all tracking parameters from the link before rendering it in a new tab. 
 Tool of choice: Gemini - got this idea from [S Ananand's talk| https://www.youtube.com/watch?v=mCJLNML7FrE]
 
 What struck me as amazing, was the ease of creating and how close the outcome was, to what I'd expected.

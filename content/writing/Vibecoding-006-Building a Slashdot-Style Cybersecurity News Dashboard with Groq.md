@@ -29,8 +29,7 @@ The "dept." line — borrowed from Slashdot's classic format — turned out to b
 
 **Groq** running **llama-3.3-70b-versatile**.
 
-Groq was chosen for speed and its generous free tier. A full refresh — up to 40 articles across 5 feeds, processed in batches of 8 — uses roughly 10,000 tokens and completes in under 15 seconds. The 70B model produces consistently coherent summaries without needing temperature tuning beyond 0.25.
-
+Groq was chosen for speed and its generous free tier. A full refresh — up to 40 articles across 5 feeds. 
 The API key is stored in `sessionStorage` only, cleared when the tab closes, and sent exclusively to `api.groq.com`. No proxy or third-party service sees it.
 
 ---
@@ -56,7 +55,7 @@ The full source is on GitHub:
 
 **[github.com/mr-dinesh/SlashSec_style-Infosec-RSS-Dashboard](https://github.com/mr-dinesh/SlashSec_style-Infosec-RSS-Dashboard)**
 
-Includes the dashboard (`v7`), a README, and this write-up. The only requirement is a free Groq account at [console.groq.com](https://console.groq.com).
+Includes the dashboard, a README, and this write-up. The only requirement is a free Groq account at [console.groq.com](https://console.groq.com).
 
 ---
 

@@ -30,7 +30,8 @@ The biggest debugging headaches were unexpected. The scraped `kagga_verses.py` c
 Encountering problems are a part of the process. 
 Debugging them is part of the learning process.
 
-The bot is live and posting. Check it out on [Mastodon](https://mastodon.social/@browncoolie).
+The bot is live and posting.
+Check it out on [Mastodon](https://mastodon.social/@browncoolie)
 
 ### Bot Source code is at Github:
 [Repo link here](https://github.com/mr-dinesh/Kagga-Bot)

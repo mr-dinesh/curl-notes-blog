@@ -32,5 +32,5 @@ Debugging them is part of the learning process.
 
 The bot is live and posting. Check it out on Mastodon: **[https://mastodon.social/@browncoolie](#)**
 
-## Source code is at Github:
+### Bot Source code is at Github:
 [Repo](https://github.com/mr-dinesh/Kagga-Bot)

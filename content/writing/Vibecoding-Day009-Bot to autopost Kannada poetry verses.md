@@ -44,7 +44,7 @@ That's the right pace for philosophy — slow enough to sit with, regular enough
 The whole project is open source. If you want to adapt it — for a different text, a different language, a different platform — the bones are all there.
 
 ### Links
-🐘 [Read the posts](https://bit.ly/kaggabot)
+🐘 [Read the posts](https://bit.ly/KaggaBot)
 ⎇ [View source code](https://github.com/mr-dinesh/KaggaBot_Automated)
 
 

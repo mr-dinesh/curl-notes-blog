@@ -6,8 +6,6 @@ tags: ["writing", "Vibecoding"]
 ---
 
 
-## Create a bot to post Mankuthimmana Kagga  Verses to Mastodon 
-
 ### What's Mankuthimmana Kagga
 
 Mankuthimmana Kagga — often called the Kannada Gita — is a collection of 945 philosophical verses by D.V. Gundappa (DVG). Written in the 1940s, it wrestles with life's biggest questions with a rare combination of humility and depth. It deserves a wider audience.

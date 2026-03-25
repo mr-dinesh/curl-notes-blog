@@ -1,3 +1,11 @@
+
+---
+title: "Vibecoding-Day009-Create a bot to post Mankuthimmana Kagga  Verses to Mastodon, using GitHub Actions as scheduler" 
+date: 2026-03-25
+tags: ["writing", "Vibecoding"]
+---
+
+
 ## Create a bot to post Mankuthimmana Kagga  Verses to Mastodon 
 
 ### What's Mankuthimmana Kagga

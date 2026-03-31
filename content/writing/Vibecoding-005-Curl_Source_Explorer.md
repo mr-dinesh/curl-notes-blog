@@ -2,6 +2,7 @@
 title: "Making a 30-Year-Old Codebase Approachable With AI"
 date: 2026-03-19
 tags: ["Open Source", "Learning", "Curl", "VibeCoding"]
+description: "A browser app that walks you through curl's internals — DNS, TLS, cookies, redirects — with AI explanations tuned to your experience level and progress tracking."
 ---
 
 ## Curl Source Explorer: Learn a 30-Year-Old Codebase Without Getting Lost

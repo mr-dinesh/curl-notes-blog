@@ -2,6 +2,7 @@
 title: "The APK Analyzer That Runs on Your Machine and Tells No One"
 date: 2026-03-31
 tags: ["Security", "Android", "Flask", "Python", "VibeCoding"]
+description: "A local Flask tool for APK security analysis — parses permissions, scans for secrets, fingerprints SDKs, and checks crypto usage. Nothing leaves your machine."
 ---
 
 ### Building an Offline APK Security Analyzer in Flask

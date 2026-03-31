@@ -2,6 +2,7 @@
 title: "I Asked AI to Help Me Build a Home Radio Server on a Sunday Afternoon"
 date: 2026-03-22
 tags: ["Self-Hosted", "Media", "Docker", "VibeCoding"]
+description: "Tried to build a home Icecast radio server to stream MP3s to my phone. What actually happened: four Docker containers, a Mega.nz dead-end, and a surprisingly working result."
 ---
 
 ### I Asked an AI to Help Me Build a Home Radio Server. Here's What Actually Happened.

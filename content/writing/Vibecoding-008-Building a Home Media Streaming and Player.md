@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day008-Building a Home Media Streaming and Player" 
+title: "I Asked AI to Help Me Build a Home Radio Server on a Sunday Afternoon"
 date: 2026-03-22
-tags: ["writing", "Vibecoding"]
+tags: ["Self-Hosted", "Media", "Docker", "VibeCoding"]
 ---
 
 ### I Asked an AI to Help Me Build a Home Radio Server. Here's What Actually Happened.

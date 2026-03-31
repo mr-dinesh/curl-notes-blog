@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day010-Create offline web tool for static security analysis of Android APK files" 
+title: "The APK Analyzer That Runs on Your Machine and Tells No One"
 date: 2026-03-31
-tags: ["writing", "Vibecoding"]
+tags: ["Security", "Android", "Flask", "Python", "VibeCoding"]
 ---
 
 ### Building an Offline APK Security Analyzer in Flask

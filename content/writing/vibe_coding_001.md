@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day001- Browser Addon - PureLink "
+title: "The URL Sanitizer That Strips Trackers Before You Click"
 date: 2026-03-14
-tags: ["Writing","Vibecoding"]
+tags: ["Browser Extension", "Privacy", "VibeCoding"]
 ---
 
 ### Two big ideas here

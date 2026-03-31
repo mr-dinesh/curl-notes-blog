@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day003-Webscraping Podcast ThinkFast, TalkSmart and Create a Montage" 
+title: "Extracting One Usable Idea From Every Podcast Episode"
 date: 2026-03-16
-tags: ["writing", "Vibecoding"]
+tags: ["Automation", "Podcast", "Python", "VibeCoding"]
 ---
 
 ### Prompt Used

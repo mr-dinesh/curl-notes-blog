@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day004- CyberPrep — Security Interview Simulator Webapp" 
+title: "Building My Own Interview Coach for a Director-Level Security Role"
 date: 2026-03-17
-tags: ["writing", "Vibecoding"]
+tags: ["Security", "Career", "AI", "VibeCoding"]
 ---
 
 ### Prompt Used: 

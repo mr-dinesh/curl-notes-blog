@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day006-Building a Slashdot-Style Cybersecurity News Dashboard with Groq" 
+title: "One Page, Five Sources, Zero Noise — My Security News Dashboard"
 date: 2026-03-20
-tags: ["writing", "Vibecoding"]
+tags: ["Security", "News", "Groq", "VibeCoding"]
 ---
 
 

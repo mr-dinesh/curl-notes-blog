@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day005- Curl Source Explorer" 
+title: "Making a 30-Year-Old Codebase Approachable With AI"
 date: 2026-03-19
-tags: ["writing", "Vibecoding"]
+tags: ["Open Source", "Learning", "Curl", "VibeCoding"]
 ---
 
 ## Curl Source Explorer: Learn a 30-Year-Old Codebase Without Getting Lost

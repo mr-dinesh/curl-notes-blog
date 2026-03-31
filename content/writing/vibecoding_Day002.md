@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day002- Browser App - Trippy Tune Player "
+title: "I Rebuilt Winamp's Visualizer in a Browser Tab"
 date: 2026-03-15
-tags: ["Writing","Vibecoding"]
+tags: ["Audio", "WebGL", "Browser", "VibeCoding"]
 ---
 
 ### Create A Browser App - for visualising music

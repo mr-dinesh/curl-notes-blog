@@ -1,8 +1,8 @@
 
 ---
-title: "Vibecoding-Day009-Create a bot to post Mankuthimmana Kagga  Verses to Mastodon, using GitHub Actions as scheduler" 
+title: "KaggaBot: Automating Daily Verse Posts With GitHub Actions"
 date: 2026-03-25
-tags: ["writing", "Vibecoding"]
+tags: ["GitHub Actions", "Mastodon", "Automation", "VibeCoding"]
 ---
 
 

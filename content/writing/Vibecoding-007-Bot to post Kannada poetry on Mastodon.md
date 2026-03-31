@@ -1,7 +1,7 @@
 ---
-title: "Vibecoding-Day007-Building a Bot to post Kannada poetry to Mastodon" 
+title: "Putting 945 Verses of Kannada Philosophy on the Internet, One at a Time"
 date: 2026-03-21
-tags: ["writing", "Vibecoding"]
+tags: ["Mastodon", "Kannada", "Poetry", "VibeCoding"]
 ---
 
 ### Building a Bot to post Mankutimmana Kagga verses to Mastodon

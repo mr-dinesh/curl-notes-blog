@@ -2,6 +2,7 @@
 title: "I Rebuilt Winamp's Visualizer in a Browser Tab"
 date: 2026-03-15
 tags: ["Audio", "WebGL", "Browser", "VibeCoding"]
+aliases: ["/writing/vibecoding_day002/"]
 description: "Used Claude to build VIZMIX — a Winamp-inspired 3D audio visualizer in the browser with five visualization modes, live mic input, and trippy WebGL effects."
 cover:
   image: "/images/writing/vibecoding-002-vizmix.png"

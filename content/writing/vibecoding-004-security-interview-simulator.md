@@ -2,6 +2,7 @@
 title: "Building My Own Interview Coach for a Director-Level Security Role"
 date: 2026-03-17
 tags: ["Security", "Career", "AI", "VibeCoding"]
+aliases: ["/writing/vibecoding-004-interview_simulator_webapp/"]
 description: "A browser-based flashcard simulator with 80+ cards for Director-level cybersecurity interview prep — covering risk, governance, STAR storytelling, and leadership vocabulary."
 cover:
   image: "/images/writing/vibecoding-004-interview-simulator.png"

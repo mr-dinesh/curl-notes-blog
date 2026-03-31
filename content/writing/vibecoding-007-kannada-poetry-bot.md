@@ -2,6 +2,7 @@
 title: "Putting 945 Verses of Kannada Philosophy on the Internet, One at a Time"
 date: 2026-03-21
 tags: ["Mastodon", "Kannada", "Poetry", "VibeCoding"]
+aliases: ["/writing/vibecoding-007-bot-to-post-kannada-poetry-on-mastodon/"]
 description: "Built a Mastodon bot to post DVG's Mankutimmana Kagga — 945 verses of Kannada philosophy — twice daily with transliteration and English explanation."
 cover:
   image: "/images/writing/vibecoding-007-kaggabot-mastodon.png"

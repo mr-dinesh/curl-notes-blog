@@ -395,6 +395,7 @@ def load_or_fetch_episodes() -> list[dict]:
 
     episodes = fetch_episodes_from_youtube()
     episodes = deduplicate(episodes)
+    episodes = fill_missing_descriptions(episodes)
     save_cache(episodes)
     print(f"\nCached {len(episodes)} episodes.\n")
     return episodes

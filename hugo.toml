@@ -1,6 +1,6 @@
 baseURL = "https://mrdee.in/"
 languageCode = "en"
-title = "Dee's Digest"
+title = "Dinesh's Digital Journal"
 theme = "congo"
 
 enableRobotsTXT = true

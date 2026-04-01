@@ -40,6 +40,7 @@ The vibe coding series is my answer to a question I kept asking: what can these 
 - **Mastodon** — [@mrd@infosec.exchange](https://infosec.exchange/@mrd) — military roots, nerd, tinkerer, babbling about tech
 - **X** — [@m_r_dinesh](https://x.com/m_r_dinesh)
 - **LinkedIn** — [dinesh-mr](https://www.linkedin.com/in/dinesh-mr)
+- **Tumblr** — [h1r0protagonist](https://www.tumblr.com/h1r0protagonist)
 - **Raindrop.io** — [mrdinesh](https://raindrop.io/mrdinesh) — bookmarks and reading list
 - **RSS** — [/index.xml](/index.xml) — for people who remember what RSS is
 

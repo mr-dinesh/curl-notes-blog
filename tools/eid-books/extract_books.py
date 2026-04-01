@@ -203,6 +203,45 @@ def fetch_episodes_via_invidious(base: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Step 1c: YouTube InnerTube API — fetches descriptions directly from YouTube
+#          Works from any IP, no proxy or API key required.
+# ---------------------------------------------------------------------------
+
+_INNERTUBE_PAYLOAD = {
+    "context": {
+        "client": {
+            "clientName": "ANDROID",
+            "clientVersion": "19.09.37",
+            "androidSdkVersion": 30,
+            "userAgent": "com.google.android.youtube/19.09.37(Linux; U; Android 11) gzip",
+            "hl": "en",
+            "timeZone": "UTC",
+            "utcOffsetMinutes": 0,
+        }
+    }
+}
+
+_INNERTUBE_HEADERS = {
+    "Content-Type": "application/json",
+    "User-Agent": "com.google.android.youtube/19.09.37(Linux; U; Android 11) gzip",
+    "X-Youtube-Client-Name": "3",
+    "X-Youtube-Client-Version": "19.09.37",
+}
+
+
+def innertube_description(vid_id: str) -> str:
+    payload = json.dumps({**_INNERTUBE_PAYLOAD, "videoId": vid_id}).encode()
+    req = URLRequest(
+        "https://www.youtube.com/youtubei/v1/player",
+        data=payload,
+        headers=_INNERTUBE_HEADERS,
+    )
+    with urlopen(req, timeout=20) as resp:
+        data = json.loads(resp.read())
+    return data.get("videoDetails", {}).get("shortDescription", "")
+
+
+# ---------------------------------------------------------------------------
 # Step 1c: Fallback — fetch via yt-dlp (works locally, may be blocked in CI)
 # ---------------------------------------------------------------------------
 
@@ -279,87 +318,27 @@ def _finish_fetch(episodes: list[dict]) -> list[dict]:
 
 
 def fill_missing_descriptions(episodes: list[dict]) -> list[dict]:
-    """Fetch descriptions for episodes that have empty descriptions."""
+    """Fetch descriptions for episodes with empty descriptions via InnerTube API."""
     missing = [e for e in episodes if not (e.get("description") or "").strip()]
     if not missing:
         return episodes
 
-    print(f"{len(missing)} episodes have empty descriptions. Fetching now...")
-
-    # Try Piped /streams/{id} first — most reliable for descriptions
-    print("Looking for a working Piped instance...")
-    base = find_working_piped_instance()
-    fetch_fn = None
-    if base:
-        def fetch_fn(vid_id):
-            return piped_get(base, f"/streams/{vid_id}").get("description", "")
-    else:
-        print("Piped unavailable. Trying Invidious...")
-        inv_base = find_working_invidious_instance()
-        if inv_base:
-            def fetch_fn(vid_id):
-                return invidious_get(inv_base, f"/api/v1/videos/{vid_id}").get("description", "")
-
-    if not fetch_fn:
-        in_ci = os.environ.get("CI", "") == "true"
-        if not in_ci:
-            print("Piped/Invidious unavailable. Falling back to yt-dlp for descriptions...")
-            return _fill_via_ytdlp(episodes)
-        print("Warning: no proxy available to fetch descriptions. Descriptions will remain empty.")
-        return episodes
-
+    print(f"{len(missing)} episodes have empty descriptions. Fetching via InnerTube...")
     id_map = {e["id"]: e for e in episodes}
     total = len(missing)
-    failed = 0
+
     for i, ep in enumerate(missing, 1):
         print(f"  [{i}/{total}] {ep['title'][:70]}")
         try:
-            desc = fetch_fn(ep["id"])
+            desc = innertube_description(ep["id"])
             id_map[ep["id"]]["description"] = desc or ""
             if desc:
                 print(f"         got {len(desc)} chars")
             else:
-                failed += 1
+                print(f"         empty")
         except Exception as e:
             print(f"         Warning: {e}")
-            failed += 1
-        time.sleep(0.4)
-
-    # If proxy returned mostly empty/errors, fall back to yt-dlp locally
-    if failed > total * 0.5 and os.environ.get("CI", "") != "true":
-        print(f"\n{failed}/{total} descriptions empty via proxy. Falling back to yt-dlp...")
-        return _fill_via_ytdlp(episodes)
-
-    return list(id_map.values())
-
-
-def _fill_via_ytdlp(episodes: list[dict]) -> list[dict]:
-    """Re-fetch descriptions for empty episodes using yt-dlp (local only)."""
-    try:
-        import yt_dlp
-    except ImportError:
-        print("Error: yt-dlp not installed. Run: pip install yt-dlp")
-        return episodes
-
-    missing_ids = {e["id"] for e in episodes if not (e.get("description") or "").strip()}
-    id_map = {e["id"]: e for e in episodes}
-
-    print(f"Fetching {len(missing_ids)} descriptions via yt-dlp...")
-    ydl_opts = {"quiet": True, "no_warnings": True, "extract_flat": False, "ignoreerrors": True}
-
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        for i, vid_id in enumerate(missing_ids, 1):
-            title = id_map[vid_id]["title"]
-            print(f"  [{i}/{len(missing_ids)}] {title[:70]}")
-            try:
-                info = ydl.extract_info(f"https://www.youtube.com/watch?v={vid_id}", download=False)
-                if info:
-                    desc = info.get("description", "") or ""
-                    id_map[vid_id]["description"] = desc
-                    if desc:
-                        print(f"         got {len(desc)} chars")
-            except Exception as e:
-                print(f"         Warning: {e}")
+        time.sleep(0.5)
 
     return list(id_map.values())
 

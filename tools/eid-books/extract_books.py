@@ -42,6 +42,19 @@ PIPED_INSTANCES = [
     "https://pipedapi.reallyaweso.me",
 ]
 
+# Invidious instances — fallback if all Piped instances fail
+INVIDIOUS_INSTANCES = [
+    "https://inv.nadeko.net",
+    "https://invidious.privacydev.net",
+    "https://yt.artemislena.eu",
+    "https://invidious.fdn.fr",
+    "https://invidious.nerdvpn.de",
+    "https://iv.melmac.space",
+    "https://yewtu.be",
+    "https://invidious.lunar.icu",
+    "https://invidious.io",
+]
+
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GROQ_MODEL = "llama-3.1-8b-instant"
 
@@ -129,7 +142,68 @@ def fetch_episodes_via_piped(base: str) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Step 1b: Fallback — fetch via yt-dlp (works locally, may be blocked in CI)
+# Step 1b: Fallback — fetch via Invidious API (different proxy project)
+# ---------------------------------------------------------------------------
+
+def invidious_get(base: str, path: str) -> dict:
+    url = f"{base}{path}"
+    req = URLRequest(url, headers={"User-Agent": "curl/8.0"})
+    with urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read())
+
+
+def find_working_invidious_instance() -> str | None:
+    for base in INVIDIOUS_INSTANCES:
+        try:
+            invidious_get(base, f"/api/v1/playlists/{PLAYLIST_ID}")
+            print(f"  Using Invidious instance: {base}")
+            return base
+        except Exception:
+            continue
+    return None
+
+
+def fetch_episodes_via_invidious(base: str) -> list[dict]:
+    print("Fetching playlist from Invidious API...")
+
+    videos = []
+    page = 1
+    while True:
+        data = invidious_get(base, f"/api/v1/playlists/{PLAYLIST_ID}?page={page}")
+        page_videos = data.get("videos", [])
+        if not page_videos:
+            break
+        videos.extend(page_videos)
+        page += 1
+
+    print(f"Found {len(videos)} videos. Fetching descriptions...")
+
+    episodes = []
+    for i, v in enumerate(videos, 1):
+        vid_id = v.get("videoId", "")
+        title = v.get("title", "")
+        print(f"  [{i}/{len(videos)}] {title[:70]}")
+
+        description = ""
+        try:
+            stream = invidious_get(base, f"/api/v1/videos/{vid_id}")
+            description = stream.get("description", "")
+        except Exception as e:
+            print(f"    Warning: could not fetch description — {e}")
+
+        episodes.append({
+            "id": vid_id,
+            "title": title,
+            "url": f"https://youtube.com/watch?v={vid_id}",
+            "description": description,
+        })
+        time.sleep(0.3)
+
+    return episodes
+
+
+# ---------------------------------------------------------------------------
+# Step 1c: Fallback — fetch via yt-dlp (works locally, may be blocked in CI)
 # ---------------------------------------------------------------------------
 
 def fetch_episodes_via_ytdlp() -> list[dict]:
@@ -179,17 +253,24 @@ def fetch_episodes_from_youtube() -> list[dict]:
 
     print("Looking for a working Piped instance...")
     base = find_working_piped_instance()
-
     if base:
-        episodes = fetch_episodes_via_piped(base)
-    elif in_ci:
-        print("\nError: all Piped instances are unavailable.")
+        return _finish_fetch(fetch_episodes_via_piped(base))
+
+    print("All Piped instances unavailable. Trying Invidious...")
+    base = find_working_invidious_instance()
+    if base:
+        return _finish_fetch(fetch_episodes_via_invidious(base))
+
+    if in_ci:
+        print("\nError: all Piped and Invidious instances are unavailable.")
         print("Re-run the workflow — instances are sometimes temporarily down.")
         sys.exit(1)
-    else:
-        print("All Piped instances unavailable — falling back to yt-dlp (local only)...")
-        episodes = fetch_episodes_via_ytdlp()
 
+    print("All proxy instances unavailable — falling back to yt-dlp (local only)...")
+    return _finish_fetch(fetch_episodes_via_ytdlp())
+
+
+def _finish_fetch(episodes: list[dict]) -> list[dict]:
     if not episodes:
         print("\nError: fetched 0 episodes. Try re-running.")
         sys.exit(1)

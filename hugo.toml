@@ -1,7 +1,7 @@
 baseURL = "https://mrdee.in/"
-languageCode = "en-us"
+languageCode = "en"
 title = "Dee's Digest"
-theme = "PaperMod"
+theme = "congo"
 
 enableRobotsTXT = true
 buildDrafts = false
@@ -13,38 +13,47 @@ buildExpired = false
   minifyOutput = true
 
 [params]
-  env = "production"
   description = "Daily Notes"
-  author = "Mr.Dee"
+  colorScheme = "slate"
+  defaultAppearance = "auto"
+  autoSwitchAppearance = true
+  enableSearch = true
+  enableCodeCopy = true
 
-  ShowReadingTime = true
-  ShowCodeCopyButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowToc = true
-  TocOpen = false
+  [params.author]
+    name = "Mr.Dee"
+    links = [
+      { github = "https://github.com/mr-dinesh" },
+      { mastodon = "https://infosec.exchange/@mrd" },
+      { x-twitter = "https://x.com/m_r_dinesh" },
+      { linkedin = "https://www.linkedin.com/in/dinesh-mr" },
+      { rss = "/index.xml" },
+    ]
 
-  defaultTheme = "auto"
+  [params.homepage]
+    layout = "page"
+    showRecent = true
+    recentLimit = 5
 
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/mr-dinesh"
+  [params.article]
+    showDate = true
+    showAuthor = false
+    showBreadcrumbs = true
+    showReadingTime = true
+    showTableOfContents = true
+    showPagination = true
+    showHeadingAnchors = true
 
-[[params.socialIcons]]
-  name = "mastodon"
-  url = "https://infosec.exchange/@mrd"
+  [params.list]
+    showSummary = true
+    showBreadcrumbs = true
+    groupByYear = false
 
-[[params.socialIcons]]
-  name = "twitter"
-  url = "https://x.com/m_r_dinesh"
-
-[[params.socialIcons]]
-  name = "linkedin"
-  url = "https://www.linkedin.com/in/dinesh-mr"
-
-[[params.socialIcons]]
-  name = "rss"
-  url = "/index.xml"
+  [params.footer]
+    showCopyright = false
+    showThemeAttribution = false
+    showAppearanceSwitcher = true
+    showScrollToTop = true
 
 [menu]
   [[menu.main]]

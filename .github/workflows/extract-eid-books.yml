@@ -1,0 +1,40 @@
+name: Extract EiE Books
+
+on:
+  workflow_dispatch:   # run manually from GitHub UI / mobile app
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r tools/eid-books/requirements.txt
+
+      - name: Fetch episodes & extract books
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        working-directory: tools/eid-books
+        run: python extract_books.py
+
+      - name: Commit CSV to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tools/eid-books/eid_books.csv tools/eid-books/episodes_cache.json
+          git diff --cached --quiet || git commit -m "Add EiE books CSV"
+          git push
+
+      - name: Upload CSV as artifact (backup)
+        uses: actions/upload-artifact@v4
+        with:
+          name: eid-books
+          path: tools/eid-books/eid_books.csv
+          retention-days: 30

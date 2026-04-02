@@ -12,8 +12,7 @@ import csv
 import time
 import sys
 import os
-from urllib.request import urlopen, Request as URLRequest
-from urllib.error import HTTPError
+import requests
 
 INPUT_FILE = r"C:\Users\Sushmita\eie_full.json"
 OUTPUT_FILE = r"C:\Users\Sushmita\eid_books.csv"
@@ -45,7 +44,7 @@ Example: [{{"title": "Thinking, Fast and Slow", "author": "Daniel Kahneman"}}]\
 
 
 def groq_extract(api_key, title, description):
-    payload = json.dumps({
+    payload = {
         "model": GROQ_MODEL,
         "messages": [{"role": "user", "content": EXTRACTION_PROMPT.format(
             title=title,
@@ -53,28 +52,24 @@ def groq_extract(api_key, title, description):
         )}],
         "temperature": 0,
         "max_tokens": 512,
-    }).encode()
-
-    req = URLRequest(
-        GROQ_API_URL,
-        data=payload,
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-        method="POST",
-    )
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
 
     for attempt in range(3):
-        try:
-            with urlopen(req, timeout=30) as resp:
-                data = json.loads(resp.read())
-            break
-        except HTTPError as e:
-            if e.code == 429:
-                wait = int(e.headers.get("retry-after", "20"))
-                print(f"    Rate limited — waiting {wait}s...")
-                time.sleep(wait)
-            else:
-                print(f"    Groq error {e.code}")
-                return []
+        resp = requests.post(GROQ_API_URL, json=payload, headers=headers, timeout=30)
+        if resp.status_code == 429:
+            wait = int(resp.headers.get("retry-after", "20"))
+            print(f"    Rate limited — waiting {wait}s...")
+            time.sleep(wait)
+            continue
+        if not resp.ok:
+            print(f"    Groq error {resp.status_code}: {resp.text[:200]}")
+            return []
+        data = resp.json()
+        break
     else:
         return []
 

@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 """
-Extract books from local eie_with_desc.json using the Anthropic Claude API.
+Extract books from local eie_with_desc.json using the Groq API (free).
 
 Usage:
-    pip install anthropic
-    set ANTHROPIC_API_KEY=your_key
+    set GROQ_API_KEY=your_key
     python extract_from_local.py
 
-Get a free API key at: https://console.anthropic.com
+Get a FREE API key (no credit card) at: https://console.groq.com
 """
 
 import json
@@ -15,12 +14,14 @@ import csv
 import time
 import sys
 import os
-import anthropic
+import requests
 
 INPUT_FILE = r"C:\Users\Sushmita\eie_with_desc.json"
 OUTPUT_FILE = r"C:\Users\Sushmita\eid_books.csv"
 
+GROQ_MODEL = "llama-3.1-8b-instant"
 MAX_DESCRIPTION_CHARS = 4000
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 EXTRACTION_PROMPT = """\
 Extract all book titles and their authors mentioned in these podcast show notes.
@@ -44,50 +45,54 @@ Example: [{{"title": "Thinking, Fast and Slow", "author": "Daniel Kahneman"}}]\
 """
 
 
-def claude_extract(client, title, description):
+def groq_extract(api_key, title, description):
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    payload = {
+        "model": GROQ_MODEL,
+        "temperature": 0,
+        "max_tokens": 512,
+        "messages": [{"role": "user", "content": EXTRACTION_PROMPT.format(
+            title=title,
+            description=description[:MAX_DESCRIPTION_CHARS],
+        )}],
+    }
+
     for attempt in range(5):
-        try:
-            message = client.messages.create(
-                model="claude-haiku-4-5-20251001",
-                max_tokens=512,
-                temperature=0,
-                messages=[{
-                    "role": "user",
-                    "content": EXTRACTION_PROMPT.format(
-                        title=title,
-                        description=description[:MAX_DESCRIPTION_CHARS],
-                    )
-                }]
-            )
-            text = message.content[0].text.strip()
-            if text.startswith("```"):
-                lines = text.splitlines()
-                text = "\n".join(lines[1:-1] if lines[-1].strip() == "```" else lines[1:])
-            parsed = json.loads(text)
-            if isinstance(parsed, list):
-                return parsed
-        except anthropic.RateLimitError:
+        resp = requests.post(GROQ_URL, headers=headers, json=payload, timeout=30)
+        if resp.status_code == 429:
             wait = 30 * (attempt + 1)
             print(f"    Rate limited — waiting {wait}s...")
             time.sleep(wait)
             continue
-        except (json.JSONDecodeError, IndexError):
-            pass
-        except anthropic.APIError as e:
-            print(f"    API error: {e}")
+        if not resp.ok:
+            print(f"    Groq error {resp.status_code}: {resp.text[:200]}")
             return []
+        data = resp.json()
+        break
+    else:
+        return []
+
+    text = data["choices"][0]["message"]["content"].strip()
+    if text.startswith("```"):
+        lines = text.splitlines()
+        text = "\n".join(lines[1:-1] if lines[-1].strip() == "```" else lines[1:])
+
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, list):
+            return parsed
+    except json.JSONDecodeError:
+        pass
     return []
 
 
 def main():
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    api_key = os.environ.get("GROQ_API_KEY", "").strip()
     if not api_key:
-        print("Error: ANTHROPIC_API_KEY not set.")
-        print("Get a free API key at: https://console.anthropic.com")
-        print("Run:  set ANTHROPIC_API_KEY=your_key_here")
+        print("Error: GROQ_API_KEY not set.")
+        print("Get a FREE key (no credit card) at: https://console.groq.com")
+        print("Run:  set GROQ_API_KEY=your_key_here")
         sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key)
 
     # Load episodes — supports both JSONL and JSON array formats
     episodes = []
@@ -137,7 +142,7 @@ def main():
             continue
 
         print(f"  [{i}/{total}] {title[:60]}")
-        books = claude_extract(client, title, description)
+        books = groq_extract(api_key, title, description)
         if books:
             print(f"         → {', '.join(b.get('title','?') for b in books[:3])}")
         for book in books:
@@ -151,7 +156,7 @@ def main():
                 })
                 total_books += 1
         csv_file.flush()
-        time.sleep(1)
+        time.sleep(2)
 
     csv_file.close()
 

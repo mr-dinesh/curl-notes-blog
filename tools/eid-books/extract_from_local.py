@@ -17,7 +17,7 @@ import requests
 INPUT_FILE = r"C:\Users\Sushmita\eie_full.json"
 OUTPUT_FILE = r"C:\Users\Sushmita\eid_books.csv"
 
-GEMINI_MODEL = "gemini-1.5-flash"
+GEMINI_MODEL = "gemini-2.0-flash"
 MAX_DESCRIPTION_CHARS = 4000
 
 EXTRACTION_PROMPT = """\

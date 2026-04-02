@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Extract books from local eie_full.json (yt-dlp JSONL format).
+Extract books from local eie_full_desc.json (yt-dlp JSONL or JSON array format).
 
 Usage:
     set GEMINI_API_KEY=your_key
@@ -14,7 +14,7 @@ import sys
 import os
 import requests
 
-INPUT_FILE = r"C:\Users\Sushmita\eie_full.json"
+INPUT_FILE = r"C:\Users\Sushmita\eie_full_desc.json"
 OUTPUT_FILE = r"C:\Users\Sushmita\eid_books.csv"
 
 GEMINI_MODEL = "gemini-2.0-flash"
@@ -89,23 +89,47 @@ def main():
         print("Run:  set GEMINI_API_KEY=your_key_here")
         sys.exit(1)
 
-    # Load episodes from JSONL file
+    # Load episodes — supports both JSONL and JSON array formats
     episodes = []
     with open(INPUT_FILE, encoding="utf-8") as f:
-        for line in f:
+        raw = f.read().strip()
+
+    if raw.startswith("["):
+        # JSON array (e.g. from yt-dlp playlist dump)
+        outer = json.loads(raw)
+        entries = outer.get("entries", outer) if isinstance(outer, dict) else outer
+        for ep in entries:
+            if isinstance(ep, dict):
+                episodes.append(ep)
+    else:
+        # JSONL — one JSON object per line
+        for line in raw.splitlines():
             line = line.strip()
             if not line:
                 continue
             try:
                 ep = json.loads(line)
-                episodes.append(ep)
+                if isinstance(ep, dict):
+                    episodes.append(ep)
             except json.JSONDecodeError:
                 continue
 
     print(f"Loaded {len(episodes)} episodes from {INPUT_FILE}")
+    with_desc = sum(1 for e in episodes if (e.get("description") or "").strip())
+    print(f"Episodes with descriptions: {with_desc}/{len(episodes)}")
 
-    rows = []
+    FIELDNAMES = ["Episode Title", "Episode URL", "Book Title", "Author"]
+
+    # Open CSV for progressive writing (write header only if file is new)
+    csv_is_new = not os.path.exists(OUTPUT_FILE)
+    csv_file = open(OUTPUT_FILE, "a", newline="", encoding="utf-8")
+    writer = csv.DictWriter(csv_file, fieldnames=FIELDNAMES)
+    if csv_is_new:
+        writer.writeheader()
+        csv_file.flush()
+
     total = len(episodes)
+    total_books = 0
     for i, ep in enumerate(episodes, 1):
         title = ep.get("title", "")
         description = (ep.get("description") or "").strip()
@@ -118,28 +142,25 @@ def main():
         print(f"  [{i}/{total}] {title[:60]}")
         books = gemini_extract(api_key, title, description)
         if books:
-            print(f"         \u2192 {', '.join(b.get('title','?') for b in books[:3])}")
+            print(f"         → {', '.join(b.get('title','?') for b in books[:3])}")
         for book in books:
             t = (book.get("title") or "").strip()
             if t:
-                rows.append({
+                writer.writerow({
                     "Episode Title": title,
                     "Episode URL": url,
                     "Book Title": t,
                     "Author": (book.get("author") or "").strip(),
                 })
+                total_books += 1
+        csv_file.flush()  # save after every episode
         time.sleep(5)
 
-    rows.sort(key=lambda r: r["Episode Title"])
+    csv_file.close()
 
-    with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["Episode Title", "Episode URL", "Book Title", "Author"])
-        writer.writeheader()
-        writer.writerows(rows)
-
-    print(f"\nDone! Found {len(rows)} book mentions across {total} episodes.")
+    print(f"\nDone! Found {total_books} book mentions across {total} episodes.")
     print(f"Saved to: {OUTPUT_FILE}")
-    print("\nImport to Google Sheets: File \u2192 Import \u2192 Upload \u2192 select eid_books.csv")
+    print("\nImport to Google Sheets: File → Import → Upload → select eid_books.csv")
 
 
 if __name__ == "__main__":

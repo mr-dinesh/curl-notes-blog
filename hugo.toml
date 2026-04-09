@@ -13,8 +13,8 @@ buildExpired = false
   minifyOutput = true
 
 [params]
-  description = "Daily Notes"
-  colorScheme = "ocean"
+  description = "Reading source code. Building projects. Taking notes. In public."
+  colorScheme = "slate"
   defaultAppearance = "auto"
   autoSwitchAppearance = true
   enableSearch = true
@@ -62,16 +62,16 @@ buildExpired = false
     weight = 0
 
   [[menu.main]]
-    name = "Notes"
+    name = "curl Source"
     url = "/curl-notes/"
     weight = 1
 
   [[menu.main]]
-    name = "Reading"
+    name = "Book Notes"
     url = "/reading/"
     weight = 2
 
   [[menu.main]]
-    name = "Writing"
+    name = "Vibe Coding"
     url = "/writing/"
     weight = 3

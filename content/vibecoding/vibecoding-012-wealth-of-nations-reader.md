@@ -5,6 +5,7 @@ tags: ["Python", "Flask", "Gemini", "LLM", "Books", "VibeCoding"]
 aliases: ["/writing/vibecoding-012-wealth-of-nations-reader/"]
 description: "A personal reader app for Adam Smith's Wealth of Nations — click any paragraph, ask Gemini questions about it in the full chapter context. Built in one session with Claude Code."
 ---
+![Wealth of Nations Reader](/images/writing/vibecoding-012-wealth-of-nations-reader.jpg)
 
 ### Building a Personal AI Reader for The Wealth of Nations
 

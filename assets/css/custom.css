@@ -1,0 +1,9 @@
+/* Book cover images in reading section — uniform size */
+img[src*="/images/reading/"] {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 1.5rem;
+}

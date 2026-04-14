@@ -1,9 +1,9 @@
 ---
-title: "Vibecoding 017 — Argus"
+title: "Vibecoding 016 — Argus"
 date: 2026-04-14
 description: "A single-file Cloudflare Workers app that stress-tests any claim, URL, or article from every angle — steelman, strawman, synthesis."
 tags: ["vibecoding", "cloudflare", "workers-ai", "llm", "tools", "reasoning"]
-aliases: ["/writing/vibecoding-017-argus/"]
+aliases: ["/writing/vibecoding-016-argus/"]
 ---
 
 I read a lot. Substacks, security advisories, policy papers, op-eds. And I noticed a pattern in myself — I'd read something that confirmed my existing view and move on, or dismiss something that challenged it without really engaging with it. Neither is rigorous thinking.
@@ -14,7 +14,7 @@ The name is from Greek mythology. Argus was the hundred-eyed giant who saw every
 
 → **[github.com/mr-dinesh/argus](https://github.com/mr-dinesh/argus)**
 
-![Argus](/images/writing/vibecoding-017-argus.jpg)
+![Argus](/images/writing/vibecoding-016-argus.jpg)
 
 ---
 

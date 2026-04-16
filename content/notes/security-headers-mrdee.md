@@ -1,5 +1,5 @@
 ---
-title: "Adding Security Headers to a Static Hugo Blog"
+title: "Hardening a Static Blog: Headers, CSP, and One Warning I Left Alone"
 date: 2026-04-16
 description: "How I went from no security headers to a clean scan on mrdee.in — and what I learned reading Congo theme source along the way."
 tags: ["security", "hugo", "cloudflare", "csp", "notes"]

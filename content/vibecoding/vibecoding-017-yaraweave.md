@@ -28,7 +28,7 @@ Not a toy rule with `$str1 = "malware"`. A real one — with meaningful hex patt
 
 And then explain it. Section by section. Condition by condition. So a tier-1 analyst who didn't write the rule can still understand it, tune it, and deploy it with confidence.
 
-Five intel sources, one LLM call to generate, one to explain. That's the entire pipeline.
+Up to five intel sources, one LLM call to generate, one to explain. That's the entire pipeline.
 
 ---
 
@@ -42,11 +42,11 @@ The tool queries up to five sources in parallel using `Promise.all`:
 |---|---|---|
 | MalwareBazaar | Family name, file type, first seen, reporter tags | None |
 | URLhaus | Distribution URLs, payload context | None |
-| ThreatFox | IOC context, additional tags | None |
-| VirusTotal | Detection rate across 70+ AV engines | Free |
 | OTX AlienVault | Threat pulse count, community intelligence | Free |
+| VirusTotal | Detection rate across 70+ AV engines | Free |
+| ThreatFox | IOC context, additional tags | None |
 
-The three abuse.ch sources (MalwareBazaar, URLhaus, ThreatFox) support browser-direct requests with open CORS policies — no proxy needed. That's what made a single-file deployment viable.
+MalwareBazaar, URLhaus, and OTX are enabled by default; ThreatFox is available but unchecked. The three abuse.ch sources (MalwareBazaar, URLhaus, ThreatFox) support browser-direct requests with open CORS policies — no proxy needed. That's what made a single-file deployment viable.
 
 ### The Gemini Prompt
 
@@ -64,7 +64,7 @@ The second call — the explanation — parses the generated rule and produces f
 
 All keys — Gemini, VirusTotal, OTX — are configured through a modal and stored in `localStorage`. Nothing is hardcoded. Nothing is sent to a backend. The browser talks directly to each API. This was a deliberate choice: the tool needed to be deployable as a static file without a server, and it needed to be trustworthy enough that I'd hand the URL to a security professional without them wondering where their API keys were going.
 
-The Gemini model is also configurable (`gemini-1.5-flash` by default, but you can switch to `gemini-2.0-flash` or `gemini-1.5-pro` without touching the code).
+The Gemini model is also configurable (`gemini-1.5-flash` by default, but you can switch to `gemini-2.0-flash-exp` or `gemini-1.5-pro` without touching the code).
 
 ---
 

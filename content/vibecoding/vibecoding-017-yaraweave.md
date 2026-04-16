@@ -18,6 +18,8 @@ What they almost never have is the middle part: someone who can look at a Malwar
 
 That's what YaraWeave is. A tool for closing that gap, fast.
 
+→ **[github.com/mr-dinesh/yaraweave](https://github.com/mr-dinesh/yaraweave)**
+
 ---
 
 ## The Idea
@@ -92,4 +94,5 @@ VirusTotal and OTX keys are optional but add detection rate and pulse count cont
 
 ---
 
-*Part of the [100 Vibe Coding Projects](https://mrdee.in/vibecoding) series — building security tools to translate 25 years of practitioner experience into demonstrable artifacts.*
+**[github.com/mr-dinesh/yaraweave](https://github.com/mr-dinesh/yaraweave)**  
+*Part of the [100 Vibe Coding Projects](https://mrdee.in/vibecoding/) series — building security tools to translate 25 years of practitioner experience into demonstrable artifacts.*

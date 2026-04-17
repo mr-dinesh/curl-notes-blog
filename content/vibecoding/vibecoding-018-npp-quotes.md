@@ -112,7 +112,7 @@ Host `quotes.json` on any static file server. Any page can fetch a random one wi
 
 ### 4. Hugo Shortcode for This Blog
 
-A `{{< random-quote >}}` shortcode that reads from the JSON at build time — or a small JS snippet that fetches it client-side — would let any Vibecoding post pull in a contextually relevant quote without me having to look one up manually.
+A `random-quote` shortcode that reads from the JSON at build time — or a small JS snippet that fetches it client-side — would let any Vibecoding post pull in a contextually relevant quote without me having to look one up manually.
 
 ### 5. Screensaver / Wallpaper Generator
 

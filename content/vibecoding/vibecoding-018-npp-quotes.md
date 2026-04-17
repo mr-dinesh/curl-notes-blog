@@ -6,7 +6,7 @@ tags: ["vibecoding", "python", "notepad++", "quotes", "tools"]
 aliases: ["/writing/vibecoding-018-npp-quotes/"]
 ---
 
-![Notepad++ Quotes Extraction](/images/writing/vibecoding-018-npp-quotes.jpg)
+![Notepad++ Quotes Extraction](/images/writing/vibecoding-018-npp-quotes.png)
 
 ## The Itch
 

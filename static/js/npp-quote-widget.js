@@ -6,3 +6,4 @@ function nppNext() {
   document.getElementById('npp-q').textContent = r.quote;
   document.getElementById('npp-a').textContent = '— ' + r.author;
 }
+document.getElementById('npp-next-btn').addEventListener('click', nppNext);

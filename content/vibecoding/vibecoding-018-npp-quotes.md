@@ -125,7 +125,7 @@ All 247 quotes are embedded below. A random one loads each time — hit the butt
 <div id="npp-quote-widget" style="border-left:3px solid #888;padding:1rem 1.25rem;margin:1.5rem 0;background:rgba(128,128,128,0.07);border-radius:0 6px 6px 0;">
   <p id="npp-q" style="margin:0 0 0.5rem;font-style:italic;white-space:pre-wrap;line-height:1.6;">Loading...</p>
   <p id="npp-a" style="margin:0;font-size:0.85em;opacity:0.7;"></p>
-  <button onclick="nppNext()" style="margin-top:0.75rem;padding:0.3rem 0.8rem;font-size:0.8em;cursor:pointer;border:1px solid #888;background:transparent;border-radius:4px;">another one &rarr;</button>
+  <button id="npp-next-btn" style="margin-top:0.75rem;padding:0.3rem 0.8rem;font-size:0.8em;cursor:pointer;border:1px solid #888;background:transparent;border-radius:4px;">another one &rarr;</button>
 </div>
 <script src="/js/npp-quote-widget.js" defer></script>
 

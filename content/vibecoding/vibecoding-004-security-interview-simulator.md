@@ -31,15 +31,15 @@ I needed a tool that would drill that vocabulary repeatedly until it felt natura
 
 The 80+ cards span 7 categories. A few examples:
 
-**Risk & Governance**
+#### Risk & Governance
 > Q: How do you communicate cyber risk to a non-technical board?
 > A: Translate technical risk into business impact — financial exposure, regulatory penalty, reputational cost, operational disruption. Use scenarios, not statistics. "A ransomware event of this type typically costs $X in downtime and $Y in recovery" lands better than "our CVSS score is 9.1."
 
-**STAR Framework**
+#### STAR Framework
 > Q: Describe a time you had to make a security decision with incomplete information.
 > A: Situation — [context]. Task — [your responsibility]. Action — [what you did and why, including what you didn't do]. Result — [outcome, ideally with a number or timeframe]. The interviewer is evaluating your reasoning process, not just the outcome.
 
-**Leadership**
+#### Leadership
 > Q: How do you build a security culture in an organisation that sees security as friction?
 > A: You don't mandate it. You make secure behaviour the path of least resistance. Start with wins that remove friction — SSO, password managers, automated patching. Then build on credibility.
 

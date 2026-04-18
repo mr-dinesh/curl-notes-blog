@@ -9,18 +9,13 @@ draft: false
 ---
 ![image](/images/reading/essentialism.jpg)
 
-
 **Essentialism: The Disciplined Pursuit of Less** by Greg McKeown
-
----
 
 The commitment to doing only the things that were truly important — and eliminating everything else — restores the quality of your work.
 
 Give yourself permission to stop trying to do it all, to stop saying yes to everyone.
 
----
-
-**The Essentialist way**
+## The Essentialist way
 
 The way of the Essentialist is the relentless pursuit of less but better.
 
@@ -31,15 +26,11 @@ Three core truths:
 - "Only a few things really matter"
 - "I can do anything but not everything"
 
----
-
-**On attention**
+## On attention
 
 Essentialists are powerful observers and listeners. They pay attention to everything — listening deliberately for what is *not* being explicitly stated.
 
----
-
-**On clarity**
+## On clarity
 
 If we could be truly excellent at only one thing, what would it be?
 
@@ -51,9 +42,7 @@ The main thing is to keep the main thing the main thing.
 
 Clarity about what is essential fuels us with the strength to say no to the nonessentials.
 
----
-
-**On saying no**
+## On saying no
 
 The point is to say no to the nonessentials so we can say yes to the things that really matter. It is to say no — frequently and gracefully — to everything but what is truly vital.
 
@@ -64,22 +53,16 @@ Tips for saying no:
 - **Remind yourself that everyone is selling something**
 - **Make your peace with the fact that saying no often requires trading popularity for respect**
 
----
-
-**On journaling**
+## On journaling
 
 A journal is like a storage device for backing up our brain's faulty hard drive.
 
 Capture the headline.
 
----
-
-**On relationships**
+## On relationships
 
 *"Bonded him to me forever because I knew what mattered most to him was me."*
 
----
-
-**On preparation**
+## On preparation
 
 Use extreme preparation — create a buffer to keep your work and sanity from swerving off the road.

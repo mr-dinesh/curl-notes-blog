@@ -9,12 +9,9 @@ draft: false
 ---
 ![image](/images/reading/how-to-take-smart-notes.jpg)
 
-
 **How to Take Smart Notes** by Sönke Ahrens
 
----
-
-**On bias and systems**
+## On bias and systems
 
 If one were to attempt to identify a single problematic aspect of human reasoning that deserves attention above all others, the confirmation bias would have to be among the candidates for consideration.
 
@@ -24,9 +21,7 @@ The antidote: indiscriminate gathering of any relevant information regardless of
 
 A good rule of thumb: if insight becomes a threat to your academic or writing success, you are doing it wrong.
 
----
-
-**On building ideas bottom-up**
+## On building ideas bottom-up
 
 Developing arguments and ideas bottom-up instead of top-down is the first and most important step to opening ourselves up for insight.
 
@@ -34,9 +29,7 @@ Focus on the most insightful ideas we encounter and welcome the most surprising 
 
 What we are looking for are facts and information that can add something and therefore enrich the slip-box.
 
----
-
-**On writing as practice**
+## On writing as practice
 
 Extracting the gist of a text or an idea and giving an account in writing is like daily practice on the piano for pianists. The more often we do it and the more focused we are, the more virtuous we become.
 
@@ -46,9 +39,7 @@ Only in the written form can an argument be looked at with a certain distance �
 
 Writing brief accounts of the main ideas of a text — instead of collecting quotes — forces us to think hard about how they connect with other ideas from different contexts.
 
----
-
-**On understanding vs. familiarity**
+## On understanding vs. familiarity
 
 Reading, especially rereading, can easily fool us into believing we understand a text. When we become familiar with something, we start believing we also understand it.
 
@@ -58,9 +49,7 @@ The attempt to rephrase an argument in our own words confronts us without mercy 
 
 If you can't say it clearly, you don't understand it yourself.
 
----
-
-**On critical thinking**
+## On critical thinking
 
 Always ask: what is *not* meant — what is excluded if a certain claim is made?
 
@@ -70,9 +59,7 @@ The ability to re-frame questions, assertions, and information is even more impo
 
 Trains one to shift attention towards frames, patterns, and categories — and the conditions or assumptions behind them.
 
----
-
-**On learning**
+## On learning
 
 The one who does the work does the learning.
 

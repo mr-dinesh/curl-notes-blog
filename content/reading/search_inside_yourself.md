@@ -9,19 +9,14 @@ draft: false
 ---
 ![image](/images/reading/search-inside-yourself.jpg)
 
-
-**Search Inside Yourself** by Chade-Meng Tan  
+**Search Inside Yourself** by Chade-Meng Tan
 *With forewords by Daniel Goleman and Jon Kabat-Zinn*
-
----
 
 Emotional intelligence enables three things: stellar work performance, outstanding leadership, and the conditions for happiness.
 
 EI is the ability to monitor one's own and others' feelings, discriminate among them, and use that information to guide thinking and action.
 
----
-
-**On attention**
+## On attention
 
 Mindfulness trains attention that is strong in both clarity and stability.
 
@@ -31,9 +26,7 @@ Scientific definition (Julie Brefczynski-Lewis): "a family of mental training pr
 
 When the mind is highly relaxed and alert simultaneously, three qualities emerge naturally: calmness, clarity, happiness.
 
----
-
-**On meditation as a skill, not a ritual**
+## On meditation as a skill, not a ritual
 
 Maintain mindfulness over three things: intention, movement, sensation.
 
@@ -43,9 +36,7 @@ Mindfulness is the faculty of voluntarily bringing back a wandering attention �
 
 The Expensive Food Meditation: pretend every meal is rare and expensive. Give it full attention.
 
----
-
-**On conversation**
+## On conversation
 
 Three components of mindful conversation:
 
@@ -53,9 +44,7 @@ Three components of mindful conversation:
 2. **Looping** — closing the loop by demonstrating you heard what was actually said
 3. **Dipping** — checking in with yourself, knowing how you feel about what you're hearing
 
----
-
-**On the nature of thoughts and emotions**
+## On the nature of thoughts and emotions
 
 Thoughts and emotions are like clouds — some beautiful, some dark. Our core being is the sky. Clouds are not the sky.
 
@@ -72,9 +61,7 @@ Five emotional competencies under self-regulation:
 
 In an enlightened mind, unwholesome thoughts are like writing on water — written and gone.
 
----
-
-**On suffering and pain**
+## On suffering and pain
 
 Pain and suffering are qualitatively distinct. One does not necessarily follow the other.
 
@@ -91,9 +78,7 @@ The biggest problem with pleasant experiences: they all eventually cease. The ex
 
 When you are not in pain, be aware that you are not in pain.
 
----
-
-**On befriending emotions**
+## On befriending emotions
 
 Do not feel bad about feeling bad.
 
@@ -101,12 +86,8 @@ Try to experience emotional difficulty as a physiological phenomenon, not an exi
 
 Rumi's Guest House: welcome every arrival — joy, depression, meanness. Even the crowd of sorrows violently sweeping the house empty may be clearing you out for a new delight.
 
----
-
-**On work and motivation**
+## On work and motivation
 
 The most logical path toward sustainable happiness at work: most time on higher purpose, sometimes in flow, occasionally savoring pleasure.
 
 The best way to find motivation at work: find your own higher purpose.
-
----

@@ -9,18 +9,13 @@ draft: false
 ---
 ![image](/images/reading/the-little-blue-reasoning-book.jpg)
 
-
 **The Little Blue Reasoning Book: 50 Powerful Principles for Clear and Effective Thinking** by Brandon Royal
 
----
-
-**On perception and mindset**
+## On perception and mindset
 
 Selective perception is the tendency to see the world the way we would like it to be rather than how it really is. The sound thinker suspends judgment and is not unduly influenced by stereotypes, prejudices, isolated experiences, or preconceived notions.
 
----
-
-**On creative thinking**
+## On creative thinking
 
 Creative thinking is "backdoor" thinking.
 
@@ -32,9 +27,7 @@ The three greatest creativity inhibitors: not challenging the obvious, evaluatin
 
 Consider whether a problem is really the problem. Think in terms of redefining the problem.
 
----
-
-**On arguments**
+## On arguments
 
 Evidence + Assumption = Conclusion. The assumption is the glue that holds the evidence to the conclusion.
 
@@ -46,9 +39,7 @@ Four types of logical statements to recognise:
 3. Mutual inclusivity and exclusivity
 4. Logical equivalency statements
 
----
-
-**The five common reasoning errors**
+## The five common reasoning errors
 
 1. Comparing apples with oranges
 2. Overgeneralizing on the basis of small samples
@@ -56,36 +47,26 @@ Four types of logical statements to recognise:
 4. Confusing cause and effect
 5. Failing to anticipate bottlenecks when plans are put into action
 
----
-
-**On causation and correlation**
+## On causation and correlation
 
 Correlation does not equal causation.
 
 Test the opposite scenario — if you hear that a full moon causes the crime rate to rise, always ask what the crime rate is like when the moon is not full.
 
----
-
-**On plans and action**
+## On plans and action
 
 Theory may be divorced from practice. Plans may not equal completed action. Do not assume that plans will be implemented without a hitch.
 
 One way to uncover implementation assumptions is to anticipate bottlenecks.
 
----
-
-**On persuasion**
+## On persuasion
 
 Most people are moved more by the depth of a person's conviction and commitment than they are by the details.
 
----
-
-**On sunk costs**
+## On sunk costs
 
 Sunk costs are irrelevant to future decision making.
 
----
-
-**On recognition**
+## On recognition
 
 Searching for something does not guarantee that we'll recognise it once we've found it. The ability to accurately identify what we are seeking to find may itself be a key assumption.

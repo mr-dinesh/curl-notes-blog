@@ -1,6 +1,6 @@
 ---
 title: "Vibecoding 020: JuiceSec — OWASP Vulnerability Lab with AI Tutor"
-date: 2026-04-18
+date: 2026-04-19
 description: "An interactive OWASP Top 10 vulnerability lab where you exploit real attack patterns and an AI tutor guides you through the why — without giving away the answer."
 tags: ["vibecoding", "security", "owasp", "cloudflare", "workers-ai", "javascript"]
 ---

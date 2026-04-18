@@ -127,16 +127,7 @@ All 247 quotes are embedded below. A random one loads each time — hit the butt
   <p id="npp-a" style="margin:0;font-size:0.85em;opacity:0.7;"></p>
   <button onclick="nppNext()" style="margin-top:0.75rem;padding:0.3rem 0.8rem;font-size:0.8em;cursor:pointer;border:1px solid #888;background:transparent;border-radius:4px;">another one &rarr;</button>
 </div>
-<script>
-let _Q=[];
-fetch('/data/npp-quotes.json').then(r=>r.json()).then(d=>{_Q=d;nppNext();});
-function nppNext(){
-  if(!_Q.length)return;
-  const r=_Q[Math.floor(Math.random()*_Q.length)];
-  document.getElementById('npp-q').textContent=r.quote;
-  document.getElementById('npp-a').textContent='— '+r.author;
-}
-</script>
+<script src="/js/npp-quote-widget.js" defer></script>
 
 ---
 

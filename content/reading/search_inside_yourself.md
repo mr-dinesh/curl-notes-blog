@@ -1,6 +1,6 @@
 ---
 title: "Search Inside Yourself — Book Notes"
-date: 2025-03-31
+date: 2026-03-31
 author: "mrdee"
 tags: ["book-notes", "mindfulness", "emotional-intelligence", "leadership"]
 categories: ["reading"]

@@ -1,4 +1,3 @@
-
 ---
 aliases: ["/writing/pattern_matching/"]
 title: "Pattern Matching"
@@ -7,7 +6,7 @@ tags: ["Writing"]
 ---
 
 
-### Interesting Insight
+## Interesting Insight
 
 Came across an interesting insight on the Risky.Biz podcast. 
 
@@ -17,7 +16,7 @@ Apparently, a vulnerability in the telnet protocol is likely to drop soon. And t
 
 The absence of usual patterns in network traffic, could be attributable to an underlying event. 
 
-### Lesson learnt 
+## Lesson learnt 
 
 Absence of indicators, may imply something more than the obvious.
 

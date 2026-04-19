@@ -59,6 +59,21 @@ The LLM is genuinely good at this. I expected it to pick safe, obvious words. In
 
 Each run is different. The headlines change daily, and even with the same headlines, temperature 0.9 produces different selections. Some runs are better than others. The bad ones are forgettable. The good ones feel like they found something real.
 
+## Update — April 2026
+
+Two additions landed in a later session.
+
+**Five HN pages.** The original only pulled Top Stories. The page selector now covers Top, Best, New, Ask HN, and Show HN. Each has its own character — Ask HN leans philosophical, Show HN is full of product names that read like incantations, New is chaotic and raw. The attribution line in the poem panel updates to match.
+
+**Five themes.** The original newsprint-and-dark look is still the default, but there are now four alternatives:
+
+- **Ink** — stark black and white, typewriter font. No compromise.
+- **Amber** — retro terminal, monochrome orange-on-black. Feels like 1983.
+- **Dusk** — moody purple and indigo. The late-night read.
+- **Times** — clean NYT broadsheet: white paper, Playfair Display, NYT blue accents. The one that looks like it belongs in a museum.
+
+Theme choice persists in `localStorage`. The coloured dots in the settings bar switch between them instantly — CSS custom properties handle all the repainting, no JavaScript needed for the actual theme application.
+
 ## Source
 
 → [github.com/mrdee-in/hn-blackout](https://github.com/mrdee-in/hn-blackout)

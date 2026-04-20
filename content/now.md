@@ -10,9 +10,9 @@ layout: "single"
 
 ## Building
 
-Somewhere around project 20 of the vibe coding series. The pace has slowed from one-a-day to one-when-it's-ready, which I think is the right call — the point was never the count.
+Somewhere around project 17 of the Vibecoding series. The pace has slowed from one-a-day to one-when-it's-ready, which I think is the right call — the point was never the count.
 
-Recent things: a browser-only OWASP vulnerability lab with an AI tutor, a blackout poetry generator from Hacker News headlines, a Wodehouse quote bot on Bluesky that posts twice a day.
+Recent things: a browser-only OWASP vulnerability lab with an AI tutor, a blackout poetry generator from Hacker News headlines, a Wodehouse quote bot on Bluesky that posts twice a day. The Kagga bot is live too — posting DVG verses to Mastodon twice daily.
 
 ## Reading
 

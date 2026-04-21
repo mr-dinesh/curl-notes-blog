@@ -23,15 +23,15 @@
   margin-top: 1.5rem;
 }
 
-/* Post separator on list pages — mobile only */
+/* Post separator on list pages (all sections) — mobile only */
 @media (max-width: 768px) {
-  .list article + article {
+  article + article {
     border-top: 1px solid rgba(128, 128, 128, 0.2);
     padding-top: 1.5rem;
     margin-top: 0.5rem;
   }
 
-  .list article + article::before {
+  article + article::before {
     content: "· · ·";
     display: block;
     text-align: center;

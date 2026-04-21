@@ -70,7 +70,11 @@
     </div>
     {{ if .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
       <div class="prose py-1 dark:prose-invert">
-        {{ .Summary | emojify }}
+        {{ with .Params.description }}
+          <p>{{ . | emojify }}</p>
+        {{ else }}
+          {{ .Summary | emojify }}
+        {{ end }}
       </div>
     {{ end }}
     {{ if not .Params.externalUrl }}

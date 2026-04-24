@@ -1,6 +1,6 @@
 ---
 title: "Vibecoding 022 — PrivyRead: Read Anything, Leave Nothing Behind"
-date: 2026-04-24
+date: 2026-04-23
 description: "A privacy-first reader that strips trackers, follows redirects server-side, and hands you clean article text before any of that noise touches your browser."
 tags: ["vibecoding", "privacy", "cloudflare", "javascript", "pwa", "readability"]
 aliases: ["/writing/vibecoding-022-privyread/"]

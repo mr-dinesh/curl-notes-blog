@@ -1,7 +1,7 @@
 ---
 title: "Vibecoding 024 — Mindful Check-in: A Personal Practice Tracker"
 date: 2026-04-26
-description: "A daily mindfulness check-in tool with breath, mind, and shift logging — built as a single-file app with Cloudflare Workers, D1 for persistence, and a stats screen showing streaks and 30-day patterns."
+description: "A daily mindfulness check-in tool with breath, mind, and shift logging — Cloudflare Workers + D1. Now with anytime check-ins, public stats sharing, and a weekly Verbal Judo practice screen."
 tags: ["vibecoding", "javascript", "cloudflare", "d1", "mindfulness", "workers"]
 aliases: ["/writing/vibecoding-024-mindful-checkin/"]
 weight: -24
@@ -101,3 +101,75 @@ wrangler deploy
 ```
 
 PIN lives as a Worker secret — never in the code, never in the URL. The frontend prompts once, stores in localStorage, and sends as an `X-Pin` header on every API request.
+
+---
+
+## v2 — Four updates
+
+### Anytime check-in
+
+The original four slots (Morning / Midday / Evening / Night) were anchored to parts of the day. That left a gap: a moment of friction or clarity at 2pm on a Tuesday doesn't fit neatly into any of them.
+
+There's now a fifth button — **Now ⏱** — that generates a time-stamped slot (`now_HHMM`) on the spot. The UNIQUE `(date, slot)` constraint in D1 handles dedup naturally: tapping Now twice at the same minute just replaces the earlier entry. In the stats screen, all `now_*` entries aggregate under a single "Anytime" row in the slot frequency chart.
+
+### Public stats — shareable read-only view
+
+The stats screen now has a **share ↗** link for the account owner. It copies a `?public=1` URL to the clipboard. Anyone opening that URL skips the PIN screen entirely and lands on a read-only view of the same stats — streaks, heatmap, patterns.
+
+On the worker side, a new route handles this:
+
+```js
+async function handlePublicStats(request, env) {
+  if (!env.MINDFUL_PUBLIC_STATS) return json({ error: 'Not enabled' }, 403);
+  return json(await fetchStats(env));
+}
+```
+
+The `MINDFUL_PUBLIC_STATS` env var acts as an opt-in switch — sharing is off by default.
+
+```bash
+wrangler secret put MINDFUL_PUBLIC_STATS
+# enter: true
+```
+
+The public view renders the same stats but replaces the back button with a "mindful check-in" credit and hides the share button.
+
+### Daily Verbal Judo tip
+
+I've been reading *Verbal Judo* by George Thompson and wanted something to nudge me toward applying it day-to-day rather than just reading it. A rotating one-liner now appears below the slot grid on the main screen, labelled "verbal judo."
+
+Twenty tips, one per day across the year (day-of-year mod 20):
+
+> *Paraphrase before you reply — prove you listened.*
+
+> *Power is the ability to not respond when you want to.*
+
+> *Always give people a way out that preserves their dignity.*
+
+Same tip all day. No interaction required — just a prompt.
+
+### Weekly practice screen
+
+Tapping **practice** in the footer opens a dedicated screen for the current week's Verbal Judo chapter. Fifteen chapters, rotating by ISO week number.
+
+Each week shows:
+- A single **snippet** — one striking sentence from the chapter, displayed as a blockquote
+- A **practice card** — one concrete action to carry into the week
+
+```
+Week 17 · Chapter 2 of 15
+Words as Your Most Powerful Tools
+
+"Your words can escalate or de-escalate before anyone moves."
+
+┌─────────────────────────────────────────┐
+│ this week's practice                    │
+│                                         │
+│ Spot one moment today where a different │
+│ word would have changed the temperature.│
+└─────────────────────────────────────────┘
+
+Next chapter in 3 days
+```
+
+The goal was low friction: open the app, see the week's focus, close it. No reading required — just the one thing to try.

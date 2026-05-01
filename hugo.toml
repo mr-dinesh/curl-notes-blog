@@ -27,6 +27,7 @@ buildExpired = false
 
   [params.author]
     name = "Mr.Dee"
+    headline = "Security by day, shipping ideas by night. Bengaluru-based."
     links = [
       { github = "https://github.com/mr-dinesh" },
       { mastodon = "https://infosec.exchange/@mrd" },

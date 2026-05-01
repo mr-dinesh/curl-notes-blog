@@ -1,6 +1,6 @@
 baseURL = "https://mrdee.in/"
 languageCode = "en"
-title = "Dinesh's Digital Journal"
+title = "mrdee.in"
 theme = "congo"
 
 enableRobotsTXT = true
@@ -38,7 +38,7 @@ buildExpired = false
   [params.homepage]
     layout = "page"
     showRecent = true
-    recentLimit = 5
+    recentLimit = 8
 
   [params.article]
     showDate = true

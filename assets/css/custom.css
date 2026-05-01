@@ -58,6 +58,12 @@ main > section > article + article::before {
   opacity: 0.85;
 }
 
+/* Section color accents on article list cards */
+article.section-vibecoding { border-left: 2px solid #6366f1; padding-left: 0.9rem; }
+article.section-notes       { border-left: 2px solid #10b981; padding-left: 0.9rem; }
+article.section-journal     { border-left: 2px solid #f59e0b; padding-left: 0.9rem; }
+article.section-reading     { border-left: 2px solid #8b5cf6; padding-left: 0.9rem; }
+
 /* Book cover images in reading section — uniform size */
 img[src*="/images/reading/"] {
   width: 200px;

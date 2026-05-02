@@ -1,7 +1,7 @@
 ---
 title: "Vibecoding 025 — go.short: a custom URL shortener, admin UI, and linktree"
 date: 2026-05-01
-description: "A Cloudflare Worker + KV URL shortener with a full admin UI, 36 slugs, and a branded linktree — plus everything that went wrong with DNS, redirect rules, and CNAME metadata before it worked."
+description: "A Cloudflare Worker + KV URL shortener with a full admin UI, 37 slugs, and a branded linktree — plus everything that went wrong with DNS, redirect rules, and CNAME metadata before it worked."
 tags: ["vibecoding", "cloudflare", "workers", "kv", "dns", "javascript"]
 aliases: ["/writing/vibecoding-025-url-shortener/"]
 weight: -25
@@ -9,15 +9,15 @@ weight: -25
 
 I've been pasting long blog post URLs into my Mastodon bio, notes, and slide decks for months. The obvious fix was a URL shortener. The less obvious part was how much Cloudflare's routing layers can fight each other when you're building one.
 
-**Linktree:** [mr-dinesh-links.pages.dev](https://mr-dinesh-links.pages.dev) · **Short links:** [short.mrdee.in](https://short.mrdee.in) · **Admin:** [go-admin-76o.pages.dev](https://go-admin-76o.pages.dev)
+**Linktree:** [mr-dinesh-links.pages.dev](https://mr-dinesh-links.pages.dev) · **Short links:** [s.mrdee.in](https://s.mrdee.in) · **Admin:** [go-admin-76o.pages.dev](https://go-admin-76o.pages.dev)
 
 ## What it does
 
-A slug like `short.mrdee.in/vc1` hits a Cloudflare Worker, does a KV lookup, and returns a `301` to the destination URL. That's it. The interesting parts are everything around it.
+A slug like `s.mrdee.in/vc1` hits a Cloudflare Worker, does a KV lookup, and returns a `301` to the destination URL. That's it. The interesting parts are everything around it.
 
 The admin UI is a single HTML file deployed to Cloudflare Pages. Password authentication via `Authorization: Bearer` header checked against a Worker secret. List all slugs, add new ones, delete existing ones — all against a JSON API served by the same Worker.
 
-The linktree (`short.mrdee.in/links`) is a static page deployed to Cloudflare Pages. It groups all 37 short links into three sections — live tools, blog & notes, and all 24 vibecoding posts — so there's one URL to share that maps the whole project.
+The linktree (`s.mrdee.in/links`) is a static page deployed to Cloudflare Pages. It groups all 37 short links into three sections — live tools, blog & notes, and all 25 vibecoding posts — so there's one URL to share that maps the whole project.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ Slug sanitisation strips everything outside `[a-z0-9_-]` on write. Destinations 
 
 ## The DNS rabbit hole
 
-Getting `short.mrdee.in` to invoke the Worker was not straightforward.
+Getting `s.mrdee.in` to invoke the Worker was not straightforward.
 
 The initial domain was `go.mrdee.in`. Every request returned a `301` back to itself. `wrangler tail` showed zero Worker invocations — the request never reached the Worker. Something upstream was swallowing it.
 
@@ -58,7 +58,7 @@ Redirect Rules fire before Workers in Cloudflare's processing pipeline. Deleting
 
 Even after fixing the redirect rule, `go.mrdee.in` was stuck. The DNS A records for it were Pages-managed and locked — created when an earlier project used `*.mrdee.in` as a wildcard custom domain. Locked records can't be edited or deleted through the dashboard or API.
 
-The cleanest fix was to move to a new subdomain: `short.mrdee.in`. A Workers Custom Domain on `short.mrdee.in` created the right `AAAA 100::` DNS record (Cloudflare's null-routing record, carrying internal worker routing metadata in `meta.origin_worker_id`) and the Worker started receiving traffic.
+The cleanest fix was to move to a new subdomain: `s.mrdee.in`. A Workers Custom Domain on `s.mrdee.in` created the right `AAAA 100::` DNS record (Cloudflare's null-routing record, carrying internal worker routing metadata in `meta.origin_worker_id`) and the Worker started receiving traffic.
 
 ## Restoring the blog
 
@@ -76,6 +76,6 @@ KV is exactly the right storage for this — slug lookups are read-heavy, values
 
 ## Slugs
 
-All 37 short links are at `short.mrdee.in/<slug>`. The linktree at `short.mrdee.in/links` has the full list grouped and labelled. The admin UI at [go-admin-76o.pages.dev](https://go-admin-76o.pages.dev) lets me add or remove slugs without touching the code.
+All 37 short links are at `s.mrdee.in/<slug>`. The linktree at `s.mrdee.in/links` has the full list grouped and labelled. The admin UI at [go-admin-76o.pages.dev](https://go-admin-76o.pages.dev) lets me add or remove slugs without touching the code.
 
-The ones I actually use most: `short.mrdee.in/blog` for the vibecoding series, `short.mrdee.in/argus` and `short.mrdee.in/juicesec` in talks, and `short.mrdee.in/now` in the Mastodon bio.
+The ones I actually use most: `s.mrdee.in/blog` for the vibecoding series, `s.mrdee.in/argus` and `s.mrdee.in/juicesec` in talks, and `s.mrdee.in/now` in the Mastodon bio.

@@ -57,7 +57,7 @@ Boot time is still ~2 minutes. That's hardware init — the touchscreen firmware
 
 ## WiFi Recovery via EDL Reflash
 
-Six months later the WiFi toggle greyed out entirely — unresponsive on the screen and via ADB. Known issue on the TB-X605LC with Android 9: the WiFi driver stack corrupts silently, often after an OTA or hard reset cycle. Bluetooth still worked, which confirmed the hardware (Qualcomm WCN3620 combo chip) was fine.
+One day later the WiFi toggle greyed out entirely — unresponsive on the screen and via ADB. Known issue on the TB-X605LC with Android 9: the WiFi driver stack corrupts silently, often after an OTA or hard reset cycle. Bluetooth still worked, which confirmed the hardware (Qualcomm WCN3620 combo chip) was fine.
 
 Software fixes exhausted in order: ADB wifi toggle, airplane mode cycle, wpa_supplicant restart, wiping `/data/misc/wifi/*`, network settings reset. None of them brought the toggle back.
 

@@ -11,7 +11,7 @@
 
   function load() {
     el.classList.add('loading');
-    fetch('https://api.chucknorris.io/jokes/random')
+    fetch('https://api.chucknorris.io/jokes/random?category=dev,career,science,food,money,sport,travel')
       .then(function (res) {
         if (!res.ok) throw new Error('http ' + res.status);
         return res.json();

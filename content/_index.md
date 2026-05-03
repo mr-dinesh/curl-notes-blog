@@ -3,7 +3,7 @@ title: "mrdee.in"
 description: "Security leader. Builder. Vibecoding."
 ---
 
-Security leader by day. Builder by night. Based in Bengaluru.
+Works in cybersecurity. Builds things that may or may not be useful. Based in Bengaluru.
 
 **[Vibecoding →](/vibecoding/)** &nbsp;25 AI-assisted projects shipped in 25 days — written up honestly. What broke, what shipped, what I learned. Starts with a URL sanitizer, ends with a URL shortener.
 

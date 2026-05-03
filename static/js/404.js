@@ -17,7 +17,7 @@
         return res.json();
       })
       .then(function (data) {
-        el.textContent = data.value.replace(/chuck norris/gi, 'Rajnikanth').replace(/chuck/gi, 'Rajni');
+        el.textContent = data.value.replace(/chuck norris/gi, 'Rajnikanth').replace(/chuck/gi, 'Rajni').replace(/norris/gi, 'Rajni');
       })
       .catch(function () {
         el.textContent = fallback[Math.floor(Math.random() * fallback.length)];

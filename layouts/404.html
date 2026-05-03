@@ -1,0 +1,149 @@
+{{ define "main" }}
+<style>
+  :root {
+    --primary: #1f2937;
+    --secondary: #6b7280;
+    --border: #e5e7eb;
+    --content: #374151;
+  }
+  .dark {
+    --primary: #f9fafb;
+    --secondary: #9ca3af;
+    --border: #374151;
+    --content: #d1d5db;
+  }
+
+  .nf-wrap {
+    max-width: 720px;
+    margin: 4rem auto 6rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .nf-code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: clamp(4rem, 14vw, 8rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .nf-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--secondary);
+    margin: 0 0 3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .nf-divider {
+    width: 2rem;
+    height: 1px;
+    background: var(--border);
+    margin: 0 auto 2.5rem;
+    border: 0;
+  }
+
+  .nf-quote {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--content);
+    min-height: 5rem;
+    margin: 0 auto 2rem;
+    max-width: 560px;
+    text-align: left;
+    padding: 1.5rem 1.75rem;
+    border-left: 2px solid var(--border);
+    transition: opacity 0.25s ease;
+  }
+
+  .nf-quote.loading {
+    opacity: 0.4;
+  }
+
+  .nf-quote::before {
+    content: "$ whoami";
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .nf-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .nf-btn {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s ease;
+  }
+
+  .nf-btn:hover {
+    border-bottom-color: var(--primary);
+  }
+</style>
+
+<div class="nf-wrap">
+  <h1 class="nf-code">rajnikanth-404</h1>
+  <p class="nf-title">page not found</p>
+
+  <hr class="nf-divider" />
+
+  <blockquote class="nf-quote loading" id="nf-quote" aria-live="polite">
+    fetching...
+  </blockquote>
+
+  <div class="nf-actions">
+    <a href="/" class="nf-btn">← home</a>
+    <a href="#" class="nf-btn" id="nf-refresh">↻ another</a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const el = document.getElementById('nf-quote');
+    const refresh = document.getElementById('nf-refresh');
+
+    const fallback = [
+      "Rajnikanth doesn't read books. He stares them down until he gets the information he wants.",
+      "Rajnikanth can divide by zero.",
+      "Rajnikanth counted to infinity. Twice.",
+      "When Rajnikanth does a pushup, he isn't lifting himself up — he's pushing the Earth down."
+    ];
+
+    async function load() {
+      el.classList.add('loading');
+      try {
+        const res = await fetch('https://api.chucknorris.io/jokes/random');
+        if (!res.ok) throw new Error('http ' + res.status);
+        const data = await res.json();
+        el.textContent = data.value.replace(/chuck norris/gi, 'Rajnikanth');
+      } catch (e) {
+        el.textContent = fallback[Math.floor(Math.random() * fallback.length)];
+      } finally {
+        el.classList.remove('loading');
+      }
+    }
+
+    refresh.addEventListener('click', function (e) {
+      e.preventDefault();
+      load();
+    });
+
+    load();
+  })();
+</script>
+{{ end }}

@@ -4,7 +4,7 @@ date: 2026-04-18
 layout: "single"
 ---
 
-*A [/now page](https://nownownow.com/about). Last updated April 2026.*
+*A [/now page](https://nownownow.com/about). Last updated May 2026.*
 
 ---
 
@@ -13,6 +13,8 @@ layout: "single"
 Somewhere around project 17 of the Vibecoding series. The pace has slowed from one-a-day to one-when-it's-ready, which I think is the right call — the point was never the count.
 
 Recent things: a browser-only OWASP vulnerability lab with an AI tutor, a blackout poetry generator from Hacker News headlines, a Wodehouse quote bot on Bluesky that posts twice a day. The Kagga bot is live too — posting DVG verses to Mastodon twice daily.
+
+Also gave this site a custom 404 page. Hit a broken URL and you get a random Rajnikanth joke. The heading reads *Error 404 — Rajnikanth downloaded the entire internet*.
 
 ## Reading
 

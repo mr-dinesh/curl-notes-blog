@@ -97,8 +97,8 @@
 </style>
 
 <div class="nf-wrap">
-  <h1 class="nf-code">rajnikanth-404</h1>
-  <p class="nf-title">page not found</p>
+  <h1 class="nf-code">Error 404</h1>
+  <p class="nf-title">Rajnikanth downloaded the entire internet</p>
 
   <hr class="nf-divider" />
 
@@ -112,38 +112,5 @@
   </div>
 </div>
 
-<script>
-  (function () {
-    const el = document.getElementById('nf-quote');
-    const refresh = document.getElementById('nf-refresh');
-
-    const fallback = [
-      "Rajnikanth doesn't read books. He stares them down until he gets the information he wants.",
-      "Rajnikanth can divide by zero.",
-      "Rajnikanth counted to infinity. Twice.",
-      "When Rajnikanth does a pushup, he isn't lifting himself up — he's pushing the Earth down."
-    ];
-
-    async function load() {
-      el.classList.add('loading');
-      try {
-        const res = await fetch('https://api.chucknorris.io/jokes/random');
-        if (!res.ok) throw new Error('http ' + res.status);
-        const data = await res.json();
-        el.textContent = data.value.replace(/chuck norris/gi, 'Rajnikanth');
-      } catch (e) {
-        el.textContent = fallback[Math.floor(Math.random() * fallback.length)];
-      } finally {
-        el.classList.remove('loading');
-      }
-    }
-
-    refresh.addEventListener('click', function (e) {
-      e.preventDefault();
-      load();
-    });
-
-    load();
-  })();
-</script>
+<script src="/js/404.js"></script>
 {{ end }}

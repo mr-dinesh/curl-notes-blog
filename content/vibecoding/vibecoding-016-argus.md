@@ -2,7 +2,7 @@
 title: "Vibecoding 016 — Argus: Steelman Any Argument Before You Commit to It"
 date: 2026-04-14
 description: "A single-file Cloudflare Workers app that stress-tests any claim, URL, or article from every angle — steelman, strawman, synthesis."
-tags: ["vibecoding", "cloudflare", "gemini", "llm", "tools", "reasoning"]
+tags: ["vibecoding", "cloudflare", "groq", "llm", "tools", "reasoning"]
 aliases: ["/writing/vibecoding-016-argus/"]
 ---
 
@@ -39,12 +39,12 @@ Browser
   +-- Cloudflare Worker (argus-proxy.mrdinesh.workers.dev)
         +-- GET /         → serves the HTML app
         +-- POST /fetch   → proxies URL fetch (solves CORS)
-        +-- POST /analyse → calls Google Gemini API (gemini-2.0-flash)
+        +-- POST /analyse → calls Groq API (llama-3.3-70b-versatile)
 ```
 
 Single Worker, three routes. The HTML is embedded directly in the Worker — no separate hosting, no Pages project, no CDN configuration. One deployment, one URL.
 
-Inference runs via the Google Gemini free tier (gemini-2.0-flash) — 1,500 requests/day, no credit card required. The Worker calls the Generative Language REST API directly with the `GEMINI_API_KEY` worker secret. The model returns structured JSON which gets parsed and rendered into the three panels client-side.
+Inference runs via Groq's free tier (llama-3.3-70b-versatile) — fast, generous daily quota, no credit card required. The Worker calls the Groq REST API directly with the `GROQ_API_KEY` worker secret. The model returns structured JSON which gets parsed and rendered into the three panels client-side.
 
 The `/fetch` route is what enables URL mode. Browsers block cross-origin fetches. The Worker fetches server-side and returns the HTML, which the client strips to plain text before sending to the AI.
 
@@ -68,7 +68,7 @@ Four constraints that matter:
 
 ## What Vibecoding This Felt Like
 
-The API roulette problem is real. Anthropic (no free tier), OpenRouter (free models deprecated) — the original build landed on Cloudflare Workers AI. That worked until it didn't: Workers AI quota silently stopped responding, breaking the live site. Migrated to Gemini free tier (gemini-2.0-flash) which is more reliable and a noticeably stronger model. The lesson: when building a free personal tool, your API choice is a constraint, not a preference — and you will revisit it.
+The API roulette problem is real. Anthropic (no free tier), OpenRouter (free models deprecated) — the original build landed on Cloudflare Workers AI. That worked until it didn't: Workers AI quota silently stopped responding, breaking the live site. Tried Gemini next; the free tier returns `limit: 0` from India. Landed on Groq (llama-3.3-70b-versatile), which is fast, has a generous free quota, and produces noticeably better analysis than the original Llama 8B. The lesson: when building a free personal tool, your API choice is a constraint, not a preference — and you will revisit it more than once.
 
 CORS is always the first wall. Every URL-fetching tool hits this. The right fix is always a server-side proxy — not allorigins.win, not corsproxy.io. Own your proxy.
 

@@ -12,7 +12,7 @@ Argus was built to fix that. The premise: before you commit to a position, stres
 
 The name is from Greek mythology. Argus was the hundred-eyed giant who saw everything from every angle.
 
-→ **[github.com/mr-dinesh/argus](https://github.com/mr-dinesh/argus)**
+→ **[github.com/mr-dinesh/vibecoding](https://github.com/mr-dinesh/vibecoding/tree/master/argus)**
 
 ![Argus](/images/writing/vibecoding-016-argus.jpg)
 
@@ -78,5 +78,5 @@ Prompt engineering compounds. Each of the four prompt constraints above was adde
 
 ---
 
-**[Try it live](https://argus-proxy.mrdinesh.workers.dev/)** · **[github.com/mr-dinesh/argus](https://github.com/mr-dinesh/argus)**  
+**[Try it live](https://argus-proxy.mrdinesh.workers.dev/)** · **[github.com/mr-dinesh/vibecoding/argus](https://github.com/mr-dinesh/vibecoding/tree/master/argus)**  
 *Part of the [100 Vibe Coding Projects](https://mrdee.in/vibecoding/) series.*
